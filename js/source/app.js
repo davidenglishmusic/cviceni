@@ -2,10 +2,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Phrase from './components/Phrase'
 
 ReactDOM.render(
   <h1>
-  Welcome to The App!
+    <Phrase />
   </h1>,
   document.getElementById('app')
 );
