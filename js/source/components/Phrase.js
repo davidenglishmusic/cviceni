@@ -13,8 +13,8 @@ class Phrase extends Component {
 }
 
 Phrase.propTypes = {
-  beginning: PropTypes.string,
-  answer: PropTypes.string,
+  beginning: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
   end: PropTypes.string,
 };
 

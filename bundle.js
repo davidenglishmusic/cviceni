@@ -261,8 +261,8 @@ var Phrase = function (_Component) {
 }(_react.Component);
 
 Phrase.propTypes = {
-  beginning: _react.PropTypes.string,
-  answer: _react.PropTypes.string,
+  beginning: _react.PropTypes.string.isRequired,
+  answer: _react.PropTypes.string.isRequired,
   end: _react.PropTypes.string
 };
 
