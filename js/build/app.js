@@ -14,8 +14,8 @@ var _Phrase2 = _interopRequireDefault(_Phrase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
-  'h1',
-  null,
-  _react2.default.createElement(_Phrase2.default, null)
-), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_Phrase2.default, {
+  beginning: 'Chod',
+  answer: 'ím',
+  end: ' do školy.'
+}), document.getElementById('app'));

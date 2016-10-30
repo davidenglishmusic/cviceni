@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import Phrase from './components/Phrase'
 
 ReactDOM.render(
-  <h1>
-    <Phrase />
-  </h1>,
+  <Phrase
+  beginning={'Chod'}
+  answer={'ím'}
+  end={' do školy.'}
+  />,
   document.getElementById('app')
 );

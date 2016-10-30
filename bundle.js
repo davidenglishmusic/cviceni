@@ -197,11 +197,11 @@ var _Phrase2 = _interopRequireDefault(_Phrase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
-  'h1',
-  null,
-  _react2.default.createElement(_Phrase2.default, null)
-), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_Phrase2.default, {
+  beginning: 'Chod',
+  answer: 'ím',
+  end: ' do školy.'
+}), document.getElementById('app'));
 },{"./components/Phrase":3,"react":173,"react-dom":30}],3:[function(require,module,exports){
 "use strict";
 
@@ -223,8 +223,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Phrase = function (_React$Component) {
-  _inherits(Phrase, _React$Component);
+var Phrase = function (_Component) {
+  _inherits(Phrase, _Component);
 
   function Phrase() {
     _classCallCheck(this, Phrase);
@@ -238,13 +238,33 @@ var Phrase = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { className: "Phrase" },
-        "Chod\xEDm do \u0161koly"
+        _react2.default.createElement(
+          "span",
+          { className: "beginning" },
+          this.props.beginning
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "answer" },
+          this.props.answer
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "end" },
+          this.props.end
+        )
       );
     }
   }]);
 
   return Phrase;
-}(_react2.default.Component);
+}(_react.Component);
+
+Phrase.propTypes = {
+  beginning: _react.PropTypes.string,
+  answer: _react.PropTypes.string,
+  end: _react.PropTypes.string
+};
 
 exports.default = Phrase;
 },{"react":173}],4:[function(require,module,exports){
