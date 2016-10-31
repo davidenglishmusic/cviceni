@@ -3,10 +3,10 @@ import React, {Component, PropTypes} from 'react';
 class Phrase extends Component {
   render() {
     return (
-      <div className="Phrase">
-        <span className="beginning">{this.props.beginning}</span>
-        <span className="answer">{this.props.answer}</span>
-        <span className="end">{this.props.end}</span>
+      <div className="phrase">
+        <div className="phrase-part phrase-beginning">{this.props.beginning}</div>
+        <div className="phrase-part phrase-answer" data-answer={this.props.answer}></div>
+        <div className="phrase-part phrase-end">{this.props.end}</div>
       </div>
     )
   }

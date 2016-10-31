@@ -1,3 +1,39 @@
+.answer-set .answer {
+  width: 80px;
+  margin: 0.5rem;
+}
+
+.phrase-answer {
+  background-color: #EEE;
+  width: 80px;
+  height: 2.5rem;
+  margin: 0.5rem;
+  border-radius: 4px;
+}
+.answer-set {
+  padding-top: 2rem;
+  text-align: center;
+}
+.phrase {
+  text-align: center;
+}
+
+.phrase-part {
+  display: inline-block;
+  vertical-align: middle;
+}
+.phrase-set {
+  padding: 2rem 0rem;
+}
+#app.container {
+  max-width: 600px;
+  border: 1px solid #EEE;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 /*! skeleton-framework | 1.1.1 | MIT | 3/7/2016 */
 /* Table of contents
 - Base Styles

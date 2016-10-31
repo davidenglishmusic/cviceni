@@ -1,0 +1,8 @@
+.phrase {
+  text-align: center;
+}
+
+.phrase-part {
+  display: inline-block;
+  vertical-align: middle;
+}

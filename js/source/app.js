@@ -2,14 +2,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Set from './components/Set'
+import PhraseSet from './components/PhraseSet';
+import AnswerSet from './components/AnswerSet';
 import exercises from '../../exercises.json';
 
 
 ReactDOM.render(
-  <Set
-  exercises={exercises[0].set}
-  />,
+  <div>
+    <AnswerSet exercises={exercises[0].set}/>
+    <PhraseSet exercises={exercises[0].set}/>
+  </div>,
   document.getElementById('app')
 );
 

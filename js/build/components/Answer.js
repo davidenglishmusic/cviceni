@@ -18,43 +18,31 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Phrase = function (_Component) {
-  _inherits(Phrase, _Component);
+var Answer = function (_Component) {
+  _inherits(Answer, _Component);
 
-  function Phrase() {
-    _classCallCheck(this, Phrase);
+  function Answer() {
+    _classCallCheck(this, Answer);
 
-    return _possibleConstructorReturn(this, (Phrase.__proto__ || Object.getPrototypeOf(Phrase)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Answer.__proto__ || Object.getPrototypeOf(Answer)).apply(this, arguments));
   }
 
-  _createClass(Phrase, [{
+  _createClass(Answer, [{
     key: "render",
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "phrase" },
-        _react2.default.createElement(
-          "div",
-          { className: "phrase-part phrase-beginning" },
-          this.props.beginning
-        ),
-        _react2.default.createElement("div", { className: "phrase-part phrase-answer", "data-answer": this.props.answer }),
-        _react2.default.createElement(
-          "div",
-          { className: "phrase-part phrase-end" },
-          this.props.end
-        )
+        "button",
+        { className: "answer button-primary" },
+        this.props.answer
       );
     }
   }]);
 
-  return Phrase;
+  return Answer;
 }(_react.Component);
 
-Phrase.propTypes = {
-  beginning: _react.PropTypes.string.isRequired,
-  answer: _react.PropTypes.string.isRequired,
-  end: _react.PropTypes.string
+Answer.propTypes = {
+  answer: _react.PropTypes.string.isRequired
 };
 
-exports.default = Phrase;
+exports.default = Answer;
