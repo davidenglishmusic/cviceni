@@ -28,14 +28,3 @@ _reactDom2.default.render(_react2.default.createElement(
   _react2.default.createElement(_AnswerSet2.default, { exercises: _exercises2.default[0].set }),
   _react2.default.createElement(_PhraseSet2.default, { exercises: _exercises2.default[0].set })
 ), document.getElementById('app'));
-
-// ReactDOM.render(
-//   <Phrase
-//   beginning={'Chod'}
-//   answer={'ím'}
-//   end={' do školy.'}
-//   />,
-//   document.getElementById('app')
-// );
-//
-// console.log(exercises);
