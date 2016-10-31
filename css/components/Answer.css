@@ -1,12 +1,13 @@
 .answer-set .answer {
-  width: 80px;
+  display: inline-block;
   margin: 0.5rem;
+  width: 80px;
 }
 
 .phrase-answer {
   background-color: #EEE;
-  width: 80px;
+  border-radius: 4px;
   height: 2.5rem;
   margin: 0.5rem;
-  border-radius: 4px;
+  width: 80px;
 }

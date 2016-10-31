@@ -2,6 +2,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import 'jquery-ui';
 import PhraseSet from './components/PhraseSet';
 import AnswerSet from './components/AnswerSet';
 import exercises from '../../exercises.json';

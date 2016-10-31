@@ -1,12 +1,17 @@
 import React, {Component, PropTypes} from 'react';
+import $ from 'jquery';
+import 'jquery-ui';
 
 class Answer extends Component {
   render() {
     return (
-      <button className="answer button-primary">
+      <a className="answer button button-primary" ref={'selector'}>
         {this.props.answer}
-      </button>
+      </a>
     )
+  }
+  componentDidMount() {
+    return $(this.refs.selector).draggable();
   }
 }
 
