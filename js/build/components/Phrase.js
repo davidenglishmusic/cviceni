@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,9 +6,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+require('jquery-ui');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,23 +34,44 @@ var Phrase = function (_Component) {
   }
 
   _createClass(Phrase, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "phrase" },
+        'div',
+        { className: 'phrase' },
         _react2.default.createElement(
-          "div",
-          { className: "phrase-part phrase-beginning" },
+          'div',
+          { className: 'phrase-part phrase-beginning' },
           this.props.beginning
         ),
-        _react2.default.createElement("div", { className: "phrase-part phrase-answer", "data-answer": this.props.answer }),
+        _react2.default.createElement('div', { className: 'phrase-part phrase-answer', ref: 'selector', 'data-answer': this.props.answer }),
         _react2.default.createElement(
-          "div",
-          { className: "phrase-part phrase-end" },
+          'div',
+          { className: 'phrase-part phrase-end' },
           this.props.end
         )
       );
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      return (0, _jquery2.default)(this.refs.selector).droppable({
+        drop: function drop(event, ui) {
+          (0, _jquery2.default)(ui.draggable[0]).position({
+            my: "center",
+            at: "center",
+            of: event.target
+          });
+          if (event.target.dataset.answer === ui.draggable[0].dataset.answer) {
+            (0, _jquery2.default)(ui.draggable[0]).removeClass("incorrect");
+            (0, _jquery2.default)(ui.draggable[0]).addClass("correct");
+            (0, _jquery2.default)(ui.draggable[0]).draggable("disable");
+            (0, _jquery2.default)(event.target).droppable("disable");
+          } else {
+            (0, _jquery2.default)(ui.draggable[0]).addClass("incorrect");
+          }
+        }
+      });
     }
   }]);
 

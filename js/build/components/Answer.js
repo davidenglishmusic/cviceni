@@ -38,7 +38,7 @@ var Answer = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'a',
-        { className: 'answer button button-primary', ref: 'selector' },
+        { className: 'answer button button-primary', ref: 'selector', 'data-answer': this.props.answer },
         this.props.answer
       );
     }

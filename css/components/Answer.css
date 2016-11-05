@@ -11,3 +11,14 @@
   margin: 0.5rem;
   width: 80px;
 }
+
+.button.button-primary.answer.correct {
+  pointer-events: none;
+  border-color: #00CC55;
+  background-color: #00CC55;
+}
+
+.button.button-primary.answer.incorrect {
+  border-color: #CC2A17;
+  background-color: #CC2A17;
+}

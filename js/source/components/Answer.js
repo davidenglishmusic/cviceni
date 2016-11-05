@@ -5,7 +5,7 @@ import 'jquery-ui';
 class Answer extends Component {
   render() {
     return (
-      <a className="answer button button-primary" ref={'selector'}>
+      <a className="answer button button-primary" ref={'selector'} data-answer={this.props.answer}>
         {this.props.answer}
       </a>
     )
