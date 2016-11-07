@@ -332,14 +332,20 @@ var AnswerSet = function (_Component) {
   _createClass(AnswerSet, [{
     key: 'render',
     value: function render() {
-      var answers = this.props.exercises.map(function (exercise, index) {
-        return _react2.default.createElement(_Answer2.default, { key: index, answer: exercise.answer });
-      });
       return _react2.default.createElement(
         'div',
         { className: 'answer-set' },
-        answers
+        this.shuffledAnswers()
       );
+    }
+  }, {
+    key: 'shuffledAnswers',
+    value: function shuffledAnswers() {
+      var answers = this.props.exercises.map(function (exercise, index) {
+        return _react2.default.createElement(_Answer2.default, { key: index, answer: exercise.answer });
+      });
+      for (var j, x, i = answers.length; i; j = parseInt(Math.random() * i), x = answers[--i], answers[i] = answers[j], answers[j] = x) {}
+      return answers;
     }
   }]);
 

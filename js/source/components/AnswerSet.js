@@ -3,14 +3,19 @@ import Answer from './Answer';
 
 class AnswerSet extends Component {
   render() {
+    return (
+      <div className="answer-set">
+        {this.shuffledAnswers()}
+      </div>
+    )
+  }
+
+  shuffledAnswers() {
     let answers = this.props.exercises.map(function(exercise, index){
       return <Answer key={index} answer={exercise.answer}/>
     });
-    return (
-      <div className="answer-set">
-        {answers}
-      </div>
-    )
+	  for(var j, x, i = answers.length; i; j = parseInt(Math.random() * i), x = answers[--i], answers[i] = answers[j], answers[j] = x);
+	  return answers;
   }
 }
 
