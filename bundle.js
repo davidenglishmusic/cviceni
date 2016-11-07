@@ -184,12 +184,12 @@ process.umask = function() { return 0; };
 module.exports=[
   {
   "set": [
-    {"beginning": "Chod", "answer": "ím", "end": " do školy."},
-    {"beginning": "Chod", "answer": "íš", "end": " do školy."},
-    {"beginning": "Ona chod", "answer": "í", "end": " do školy."},
-    {"beginning": "Chod", "answer": "íme", "end": " do školy."},
-    {"beginning": "Chod", "answer": "íte", "end": " do školy."},
-    {"beginning": "Chod", "answer": "í", "end": " do školy."}
+    {"hint": "Ja", "beginning": "Chod", "answer": "ím", "end": " do školy."},
+    {"hint": "Ty", "beginning": "Chod", "answer": "íš", "end": " do školy."},
+    {"hint": "Ona", "beginning": "Chod", "answer": "í", "end": " do školy."},
+    {"hint": "My", "beginning": "Chod", "answer": "íme", "end": " do školy."},
+    {"hint": "Vy", "beginning": "Chod", "answer": "íte", "end": " do školy."},
+    {"hint": "Oni", "beginning": "Chod", "answer": "í", "end": " do školy."}
   ]
   }
 ]
@@ -385,6 +385,13 @@ var Phrase = function (_Component) {
         { className: 'phrase' },
         _react2.default.createElement(
           'div',
+          { className: 'phrase-part phrase-hint' },
+          '(',
+          this.props.hint,
+          ')'
+        ),
+        _react2.default.createElement(
+          'div',
           { className: 'phrase-part phrase-beginning' },
           this.props.beginning
         ),
@@ -423,6 +430,7 @@ var Phrase = function (_Component) {
 }(_react.Component);
 
 Phrase.propTypes = {
+  hint: _react.PropTypes.string,
   beginning: _react.PropTypes.string.isRequired,
   answer: _react.PropTypes.string.isRequired,
   end: _react.PropTypes.string
@@ -467,7 +475,13 @@ var PhraseSet = function (_Component) {
     key: 'render',
     value: function render() {
       var setExercises = this.props.exercises.map(function (exercise, index) {
-        return _react2.default.createElement(_Phrase2.default, { key: index, beginning: exercise.beginning, answer: exercise.answer, end: exercise.end });
+        return _react2.default.createElement(_Phrase2.default, {
+          key: index,
+          hint: exercise.hint,
+          beginning: exercise.beginning,
+          answer: exercise.answer,
+          end: exercise.end
+        });
       });
       return _react2.default.createElement(
         'div',

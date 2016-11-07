@@ -35,7 +35,13 @@ var PhraseSet = function (_Component) {
     key: 'render',
     value: function render() {
       var setExercises = this.props.exercises.map(function (exercise, index) {
-        return _react2.default.createElement(_Phrase2.default, { key: index, beginning: exercise.beginning, answer: exercise.answer, end: exercise.end });
+        return _react2.default.createElement(_Phrase2.default, {
+          key: index,
+          hint: exercise.hint,
+          beginning: exercise.beginning,
+          answer: exercise.answer,
+          end: exercise.end
+        });
       });
       return _react2.default.createElement(
         'div',

@@ -6,6 +6,7 @@ class Phrase extends Component {
   render() {
     return (
       <div className="phrase">
+      <div className="phrase-part phrase-hint">({this.props.hint})</div>
       <div className="phrase-part phrase-beginning">{this.props.beginning}</div>
       <div className="phrase-part phrase-answer" ref={'selector'} data-answer={this.props.answer}></div>
       <div className="phrase-part phrase-end">{this.props.end}</div>
@@ -36,6 +37,7 @@ class Phrase extends Component {
 }
 
 Phrase.propTypes = {
+  hint: PropTypes.string,
   beginning: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   end: PropTypes.string,

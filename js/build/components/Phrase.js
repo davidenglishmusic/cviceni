@@ -41,6 +41,13 @@ var Phrase = function (_Component) {
         { className: 'phrase' },
         _react2.default.createElement(
           'div',
+          { className: 'phrase-part phrase-hint' },
+          '(',
+          this.props.hint,
+          ')'
+        ),
+        _react2.default.createElement(
+          'div',
           { className: 'phrase-part phrase-beginning' },
           this.props.beginning
         ),
@@ -79,6 +86,7 @@ var Phrase = function (_Component) {
 }(_react.Component);
 
 Phrase.propTypes = {
+  hint: _react.PropTypes.string,
   beginning: _react.PropTypes.string.isRequired,
   answer: _react.PropTypes.string.isRequired,
   end: _react.PropTypes.string

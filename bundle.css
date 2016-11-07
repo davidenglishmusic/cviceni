@@ -33,6 +33,12 @@
 .phrase-part {
   display: inline-block;
   vertical-align: middle;
+  padding: 0 0.25rem;
+}
+
+.phrase-hint {
+  font-size: 0.8rem;
+  opacity: 0.4;
 }
 .phrase-set {
   padding: 2rem 0rem;

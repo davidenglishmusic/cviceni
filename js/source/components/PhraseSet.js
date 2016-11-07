@@ -4,7 +4,13 @@ import Phrase from './Phrase';
 class PhraseSet extends Component {
   render() {
     let setExercises = this.props.exercises.map(function(exercise, index){
-      return <Phrase key={index} beginning={exercise.beginning} answer={exercise.answer} end={exercise.end}/>
+      return <Phrase
+        key={index}
+        hint={exercise.hint}
+        beginning={exercise.beginning}
+        answer={exercise.answer}
+        end={exercise.end}
+      />
     });
     return (
       <div className="phrase-set">
