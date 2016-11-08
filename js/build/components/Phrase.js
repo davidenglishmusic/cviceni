@@ -62,6 +62,8 @@ var Phrase = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       return (0, _jquery2.default)(this.refs.selector).droppable({
         drop: function drop(event, ui) {
           (0, _jquery2.default)(ui.draggable[0]).position({
@@ -74,11 +76,19 @@ var Phrase = function (_Component) {
             (0, _jquery2.default)(ui.draggable[0]).addClass("correct");
             (0, _jquery2.default)(ui.draggable[0]).draggable("disable");
             (0, _jquery2.default)(event.target).droppable("disable");
+            if ((0, _jquery2.default)('a.answer.correct').length === (0, _jquery2.default)('.phrase').length) {
+              _this2.finishSet();
+            }
           } else {
             (0, _jquery2.default)(ui.draggable[0]).addClass("incorrect");
           }
         }
       });
+    }
+  }, {
+    key: 'finishSet',
+    value: function finishSet() {
+      return console.log('all correct');
     }
   }]);
 

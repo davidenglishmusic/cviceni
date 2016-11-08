@@ -11,10 +11,8 @@ class AnswerSet extends Component {
   }
 
   shuffledAnswers() {
-    let answers = this.props.exercises.map(function(exercise, index){
-      return <Answer key={index} answer={exercise.answer}/>
-    });
-	  for(var j, x, i = answers.length; i; j = parseInt(Math.random() * i), x = answers[--i], answers[i] = answers[j], answers[j] = x);
+    let answers = this.props.exercises.map((exercise, index) => <Answer key={index} answer={exercise.answer}/>);
+	  for(let j, x, i = answers.length; i; j = parseInt(Math.random() * i), x = answers[--i], answers[i] = answers[j], answers[j] = x);
 	  return answers;
   }
 }

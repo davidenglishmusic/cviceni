@@ -16,7 +16,7 @@ class Phrase extends Component {
 
   componentDidMount() {
     return $(this.refs.selector).droppable({
-      drop: function( event, ui ) {
+      drop: ( event, ui ) => {
         $( ui.draggable[0] ).position({
           my: "center",
           at: "center",
@@ -27,12 +27,19 @@ class Phrase extends Component {
           $(ui.draggable[0]).addClass("correct");
           $(ui.draggable[0]).draggable("disable");
           $(event.target).droppable("disable");
+          if ($('a.answer.correct').length === $('.phrase').length) {
+            this.finishSet();
+          }
         }
         else {
           $(ui.draggable[0]).addClass("incorrect");
         }
       }
     });
+  }
+
+  finishSet() {
+    return console.log('all correct');
   }
 }
 
