@@ -28,7 +28,7 @@ class Phrase extends Component {
           $(ui.draggable[0]).draggable("disable");
           $(event.target).droppable("disable");
           if ($('a.answer.correct').length === $('.phrase').length) {
-            this.finishSet();
+            this.props.completeSet()
           }
         }
         else {
@@ -37,10 +37,6 @@ class Phrase extends Component {
       }
     });
   }
-
-  finishSet() {
-    return console.log('all correct');
-  }
 }
 
 Phrase.propTypes = {
@@ -48,6 +44,7 @@ Phrase.propTypes = {
   beginning: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   end: PropTypes.string,
+  completeSet: PropTypes.func.isRequired,
 };
 
 export default Phrase

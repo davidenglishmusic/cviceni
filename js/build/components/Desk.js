@@ -10,9 +10,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Phrase = require('./Phrase');
+var _PhraseSet = require('./PhraseSet');
 
-var _Phrase2 = _interopRequireDefault(_Phrase);
+var _PhraseSet2 = _interopRequireDefault(_PhraseSet);
+
+var _AnswerSet = require('./AnswerSet');
+
+var _AnswerSet2 = _interopRequireDefault(_AnswerSet);
+
+var _exercises = require('../../../exercises.json');
+
+var _exercises2 = _interopRequireDefault(_exercises);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,44 +30,36 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PhraseSet = function (_Component) {
-  _inherits(PhraseSet, _Component);
+var Desk = function (_Component) {
+  _inherits(Desk, _Component);
 
-  function PhraseSet() {
-    _classCallCheck(this, PhraseSet);
+  function Desk() {
+    _classCallCheck(this, Desk);
 
-    return _possibleConstructorReturn(this, (PhraseSet.__proto__ || Object.getPrototypeOf(PhraseSet)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Desk.__proto__ || Object.getPrototypeOf(Desk)).apply(this, arguments));
   }
 
-  _createClass(PhraseSet, [{
+  _createClass(Desk, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
-      var setExercises = this.props.exercises.map(function (exercise, index) {
-        return _react2.default.createElement(_Phrase2.default, {
-          key: index,
-          hint: exercise.hint,
-          beginning: exercise.beginning,
-          answer: exercise.answer,
-          end: exercise.end,
-          completeSet: _this2.props.completeSet
-        });
-      });
       return _react2.default.createElement(
         'div',
-        { className: 'phrase-set' },
-        setExercises
+        { id: 'desk' },
+        _react2.default.createElement(_AnswerSet2.default, { exercises: _exercises2.default[0].set }),
+        _react2.default.createElement(_PhraseSet2.default, {
+          exercises: _exercises2.default[0].set,
+          completeSet: this.completeSet
+        })
       );
+    }
+  }, {
+    key: 'completeSet',
+    value: function completeSet() {
+      console.log('finished');
     }
   }]);
 
-  return PhraseSet;
+  return Desk;
 }(_react.Component);
 
-PhraseSet.propTypes = {
-  exercises: _react.PropTypes.array.isRequired,
-  completeSet: _react.PropTypes.func.isRequired
-};
-
-exports.default = PhraseSet;
+exports.default = Desk;

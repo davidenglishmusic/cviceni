@@ -77,18 +77,13 @@ var Phrase = function (_Component) {
             (0, _jquery2.default)(ui.draggable[0]).draggable("disable");
             (0, _jquery2.default)(event.target).droppable("disable");
             if ((0, _jquery2.default)('a.answer.correct').length === (0, _jquery2.default)('.phrase').length) {
-              _this2.finishSet();
+              _this2.props.completeSet();
             }
           } else {
             (0, _jquery2.default)(ui.draggable[0]).addClass("incorrect");
           }
         }
       });
-    }
-  }, {
-    key: 'finishSet',
-    value: function finishSet() {
-      return console.log('all correct');
     }
   }]);
 
@@ -99,7 +94,8 @@ Phrase.propTypes = {
   hint: _react.PropTypes.string,
   beginning: _react.PropTypes.string.isRequired,
   answer: _react.PropTypes.string.isRequired,
-  end: _react.PropTypes.string
+  end: _react.PropTypes.string,
+  completeSet: _react.PropTypes.func.isRequired
 };
 
 exports.default = Phrase;
