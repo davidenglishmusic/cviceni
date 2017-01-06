@@ -42,7 +42,10 @@ var Desk = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Desk.__proto__ || Object.getPrototypeOf(Desk)).call(this, props));
 
-    _this.state = { currentExercise: 0 };
+    _this.state = {
+      exercises: _this.shuffledExercises(),
+      currentExercise: 0
+    };
     return _this;
   }
 
@@ -52,9 +55,9 @@ var Desk = function (_Component) {
       return _react2.default.createElement(
         'div',
         { id: 'desk' },
-        _react2.default.createElement(_AnswerSet2.default, { exercises: _exercises2.default[this.state.currentExercise].set }),
+        _react2.default.createElement(_AnswerSet2.default, { exercises: this.state.exercises[this.state.currentExercise].set }),
         _react2.default.createElement(_PhraseSet2.default, {
-          exercises: _exercises2.default[this.state.currentExercise].set,
+          exercises: this.state.exercises[this.state.currentExercise].set,
           completeSet: this.completeSet.bind(this)
         })
       );
@@ -79,6 +82,13 @@ var Desk = function (_Component) {
       (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
         (0, _jquery2.default)(this).droppable("enable");
       });
+    }
+  }, {
+    key: 'shuffledExercises',
+    value: function shuffledExercises() {
+      var shuffledExercises = _exercises2.default;
+      for (var j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x) {}
+      return shuffledExercises;
     }
   }]);
 

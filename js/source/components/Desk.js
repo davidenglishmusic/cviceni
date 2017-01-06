@@ -7,15 +7,18 @@ import exercises from '../../../exercises.json';
 class Desk extends Component {
   constructor(props) {
     super(props);
-    this.state = {currentExercise: 0};
+    this.state = {
+      exercises: this.shuffledExercises(),
+      currentExercise: 0
+    };
   }
 
   render() {
     return (
       <div id='desk'>
-        <AnswerSet exercises={exercises[this.state.currentExercise].set}/>
+        <AnswerSet exercises={this.state.exercises[this.state.currentExercise].set}/>
         <PhraseSet
-          exercises={exercises[this.state.currentExercise].set}
+          exercises={this.state.exercises[this.state.currentExercise].set}
           completeSet={this.completeSet.bind(this)}
         />
       </div>
@@ -39,6 +42,12 @@ class Desk extends Component {
     $(".phrase-part.phrase-answer").each(function( index ) {
       $(this).droppable("enable");
     });
+  }
+
+  shuffledExercises() {
+    let shuffledExercises = exercises;
+	  for(let j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x);
+	  return shuffledExercises;
   }
 }
 
