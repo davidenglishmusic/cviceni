@@ -201,6 +201,16 @@ module.exports=[
       {"hint": "Vy", "beginning": "Dá", "answer": "te", "end": "čokoládu Bedřichovi."},
       {"hint": "Oni", "beginning": "Dá", "answer": "vají", "end": "čokoládu Bedřichovi."}
     ]
+  },
+  {
+    "set": [
+      {"hint": "Ja", "beginning": "Hraj", "answer": "u", "end": "na harfu krásně."},
+      {"hint": "Ty", "beginning": "Hraj", "answer": "eš", "end": "na harfu krásně."},
+      {"hint": "Ona", "beginning": "Hraj", "answer": "e", "end": "na harfu krásně."},
+      {"hint": "My", "beginning": "Hraj", "answer": "eme", "end": "na harfu krásně."},
+      {"hint": "Vy", "beginning": "Hraj", "answer": "ete", "end": "na harfu krásně."},
+      {"hint": "Oni", "beginning": "Hraj", "answer": "í", "end": "na harfu krásně."}
+    ]
   }
 ]
 
