@@ -361,6 +361,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _PhraseSet = require('./PhraseSet');
 
 var _PhraseSet2 = _interopRequireDefault(_PhraseSet);
@@ -384,10 +388,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Desk = function (_Component) {
   _inherits(Desk, _Component);
 
-  function Desk() {
+  function Desk(props) {
     _classCallCheck(this, Desk);
 
-    return _possibleConstructorReturn(this, (Desk.__proto__ || Object.getPrototypeOf(Desk)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Desk.__proto__ || Object.getPrototypeOf(Desk)).call(this, props));
+
+    _this.state = { currentExercise: 0 };
+    return _this;
   }
 
   _createClass(Desk, [{
@@ -396,17 +403,28 @@ var Desk = function (_Component) {
       return _react2.default.createElement(
         'div',
         { id: 'desk' },
-        _react2.default.createElement(_AnswerSet2.default, { exercises: _exercises2.default[0].set }),
+        _react2.default.createElement(_AnswerSet2.default, { exercises: _exercises2.default[this.state.currentExercise].set }),
         _react2.default.createElement(_PhraseSet2.default, {
-          exercises: _exercises2.default[0].set,
-          completeSet: this.completeSet
+          exercises: _exercises2.default[this.state.currentExercise].set,
+          completeSet: this.completeSet.bind(this)
         })
       );
     }
   }, {
     key: 'completeSet',
     value: function completeSet() {
-      console.log('finished');
+      if (this.state.currentExercise + 1 < { exercises: _exercises2.default }.exercises.length) {
+        this.setState({
+          currentExercise: this.state.currentExercise + 1
+        });
+        (0, _jquery2.default)("a.answer").each(function (index) {
+          (0, _jquery2.default)(this).removeClass("correct").draggable("enable");
+          (0, _jquery2.default)(this).css("left", "0px").css("top", "0px");
+        });
+        (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
+          (0, _jquery2.default)(this).droppable("enable");
+        });
+      }
     }
   }]);
 
@@ -414,7 +432,7 @@ var Desk = function (_Component) {
 }(_react.Component);
 
 exports.default = Desk;
-},{"../../../exercises.json":2,"./AnswerSet":5,"./PhraseSet":8,"react":186}],7:[function(require,module,exports){
+},{"../../../exercises.json":2,"./AnswerSet":5,"./PhraseSet":8,"jquery":33,"react":186}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
