@@ -430,19 +430,28 @@ var Desk = function (_Component) {
   }, {
     key: 'completeSet',
     value: function completeSet() {
+      var _this2 = this;
+
       if (this.state.currentExercise + 1 < { exercises: _exercises2.default }.exercises.length) {
-        this.setState({
-          currentExercise: this.state.currentExercise + 1
-        });
         this.resetAnswers();
+        setTimeout(function () {
+          return _this2.incrementCurrentExercise();
+        }, 500);
       }
+    }
+  }, {
+    key: 'incrementCurrentExercise',
+    value: function incrementCurrentExercise() {
+      this.setState({
+        currentExercise: this.state.currentExercise + 1
+      });
     }
   }, {
     key: 'resetAnswers',
     value: function resetAnswers() {
       (0, _jquery2.default)("a.answer").each(function (index) {
         (0, _jquery2.default)(this).removeClass("correct").draggable("enable");
-        (0, _jquery2.default)(this).css("left", "0px").css("top", "0px");
+        (0, _jquery2.default)(this).animate({ left: "0px", top: "0px" }, { duration: 500 });
       });
       (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
         (0, _jquery2.default)(this).droppable("enable");

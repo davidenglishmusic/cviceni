@@ -27,17 +27,21 @@ class Desk extends Component {
 
   completeSet() {
     if (this.state.currentExercise + 1 < {exercises}.exercises.length) {
-      this.setState({
-        currentExercise: this.state.currentExercise + 1
-      });
       this.resetAnswers();
+      setTimeout(() => this.incrementCurrentExercise(), 500);
     }
+  }
+
+  incrementCurrentExercise() {
+    this.setState({
+      currentExercise: this.state.currentExercise + 1
+    });
   }
 
   resetAnswers() {
     $("a.answer").each(function( index ) {
       $(this).removeClass("correct").draggable("enable");
-      $(this).css("left", "0px").css("top", "0px");
+      $(this).animate({left: "0px",top: "0px"},{duration: 500});
     });
     $(".phrase-part.phrase-answer").each(function( index ) {
       $(this).droppable("enable");
