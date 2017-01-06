@@ -13,8 +13,8 @@
     "babel-preset-react": "^6.16.0",
     "jquery": "^2.2.4",
     "jquery-ui": "^1.10.5",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "watch": "^1.0.1"
   }
 }
