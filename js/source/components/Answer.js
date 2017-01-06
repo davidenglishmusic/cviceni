@@ -6,7 +6,7 @@ class Answer extends Component {
   render() {
     return (
       <a className="answer button button-primary" ref={'selector'} data-answer={this.props.answer}>
-        {this.props.answer}
+        <span>{this.props.answer}</span>
       </a>
     )
   }

@@ -268,7 +268,11 @@ var Answer = function (_Component) {
       return _react2.default.createElement(
         'a',
         { className: 'answer button button-primary', ref: 'selector', 'data-answer': this.props.answer },
-        this.props.answer
+        _react2.default.createElement(
+          'span',
+          null,
+          this.props.answer
+        )
       );
     }
   }, {

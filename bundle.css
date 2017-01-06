@@ -4,6 +4,12 @@
   width: 80px;
 }
 
+.answer-set .answer span {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
 .phrase-answer {
   background-color: #EEE;
   border-radius: 4px;
