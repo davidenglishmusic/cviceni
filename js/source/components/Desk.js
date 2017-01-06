@@ -27,14 +27,18 @@ class Desk extends Component {
       this.setState({
         currentExercise: this.state.currentExercise + 1
       });
-      $("a.answer").each(function( index ) {
-        $(this).removeClass("correct").draggable("enable");
-        $(this).css("left", "0px").css("top", "0px");
-      });
-      $(".phrase-part.phrase-answer").each(function( index ) {
-        $(this).droppable("enable");
-      });
+      this.resetAnswers();
     }
+  }
+
+  resetAnswers() {
+    $("a.answer").each(function( index ) {
+      $(this).removeClass("correct").draggable("enable");
+      $(this).css("left", "0px").css("top", "0px");
+    });
+    $(".phrase-part.phrase-answer").each(function( index ) {
+      $(this).droppable("enable");
+    });
   }
 }
 

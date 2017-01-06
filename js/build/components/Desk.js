@@ -66,14 +66,19 @@ var Desk = function (_Component) {
         this.setState({
           currentExercise: this.state.currentExercise + 1
         });
-        (0, _jquery2.default)("a.answer").each(function (index) {
-          (0, _jquery2.default)(this).removeClass("correct").draggable("enable");
-          (0, _jquery2.default)(this).css("left", "0px").css("top", "0px");
-        });
-        (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
-          (0, _jquery2.default)(this).droppable("enable");
-        });
+        this.resetAnswers();
       }
+    }
+  }, {
+    key: 'resetAnswers',
+    value: function resetAnswers() {
+      (0, _jquery2.default)("a.answer").each(function (index) {
+        (0, _jquery2.default)(this).removeClass("correct").draggable("enable");
+        (0, _jquery2.default)(this).css("left", "0px").css("top", "0px");
+      });
+      (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
+        (0, _jquery2.default)(this).droppable("enable");
+      });
     }
   }]);
 
