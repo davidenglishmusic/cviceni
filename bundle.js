@@ -181,38 +181,127 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
-module.exports=[
-  {
-    "set": [
-      {"hint": "Ja", "beginning": "Chod", "answer": "ím", "end": "do školy."},
-      {"hint": "Ty", "beginning": "Chod", "answer": "íš", "end": "do školy."},
-      {"hint": "Ona", "beginning": "Chod", "answer": "í", "end": "do školy."},
-      {"hint": "My", "beginning": "Chod", "answer": "íme", "end": "do školy."},
-      {"hint": "Vy", "beginning": "Chod", "answer": "íte", "end": "do školy."},
-      {"hint": "Oni", "beginning": "Chod", "answer": "í", "end": "do školy."}
-    ]
-  },
-  {
-    "set": [
-      {"hint": "Ja", "beginning": "Dá", "answer": "vám", "end": "čokoládu Bedřichovi."},
-      {"hint": "Ty", "beginning": "Dá", "answer": "váš", "end": "čokoládu Bedřichovi."},
-      {"hint": "Ona", "beginning": "Dá", "answer": "vá", "end": "čokoládu Bedřichovi."},
-      {"hint": "My", "beginning": "Dá", "answer": "váme", "end": "čokoládu Bedřichovi."},
-      {"hint": "Vy", "beginning": "Dá", "answer": "te", "end": "čokoládu Bedřichovi."},
-      {"hint": "Oni", "beginning": "Dá", "answer": "vají", "end": "čokoládu Bedřichovi."}
-    ]
-  },
-  {
-    "set": [
-      {"hint": "Ja", "beginning": "Hraj", "answer": "u", "end": "na harfu krásně."},
-      {"hint": "Ty", "beginning": "Hraj", "answer": "eš", "end": "na harfu krásně."},
-      {"hint": "Ona", "beginning": "Hraj", "answer": "e", "end": "na harfu krásně."},
-      {"hint": "My", "beginning": "Hraj", "answer": "eme", "end": "na harfu krásně."},
-      {"hint": "Vy", "beginning": "Hraj", "answer": "ete", "end": "na harfu krásně."},
-      {"hint": "Oni", "beginning": "Hraj", "answer": "í", "end": "na harfu krásně."}
-    ]
-  }
-]
+module.exports={
+    "exercises": [{
+            "set": [{
+                    "hint": "Ja",
+                    "beginning": "Chod",
+                    "answer": "ím",
+                    "end": "do školy."
+                },
+                {
+                    "hint": "Ty",
+                    "beginning": "Chod",
+                    "answer": "íš",
+                    "end": "do školy."
+                },
+                {
+                    "hint": "Ona",
+                    "beginning": "Chod",
+                    "answer": "í",
+                    "end": "do školy."
+                },
+                {
+                    "hint": "My",
+                    "beginning": "Chod",
+                    "answer": "íme",
+                    "end": "do školy."
+                },
+                {
+                    "hint": "Vy",
+                    "beginning": "Chod",
+                    "answer": "íte",
+                    "end": "do školy."
+                },
+                {
+                    "hint": "Oni",
+                    "beginning": "Chod",
+                    "answer": "í",
+                    "end": "do školy."
+                }
+            ]
+        },
+        {
+            "set": [{
+                    "hint": "Ja",
+                    "beginning": "Dá",
+                    "answer": "vám",
+                    "end": "čokoládu Bedřichovi."
+                },
+                {
+                    "hint": "Ty",
+                    "beginning": "Dá",
+                    "answer": "váš",
+                    "end": "čokoládu Bedřichovi."
+                },
+                {
+                    "hint": "Ona",
+                    "beginning": "Dá",
+                    "answer": "vá",
+                    "end": "čokoládu Bedřichovi."
+                },
+                {
+                    "hint": "My",
+                    "beginning": "Dá",
+                    "answer": "váme",
+                    "end": "čokoládu Bedřichovi."
+                },
+                {
+                    "hint": "Vy",
+                    "beginning": "Dá",
+                    "answer": "te",
+                    "end": "čokoládu Bedřichovi."
+                },
+                {
+                    "hint": "Oni",
+                    "beginning": "Dá",
+                    "answer": "vají",
+                    "end": "čokoládu Bedřichovi."
+                }
+            ]
+        },
+        {
+            "set": [{
+                    "hint": "Ja",
+                    "beginning": "Hraj",
+                    "answer": "u",
+                    "end": "na harfu krásně."
+                },
+                {
+                    "hint": "Ty",
+                    "beginning": "Hraj",
+                    "answer": "eš",
+                    "end": "na harfu krásně."
+                },
+                {
+                    "hint": "Ona",
+                    "beginning": "Hraj",
+                    "answer": "e",
+                    "end": "na harfu krásně."
+                },
+                {
+                    "hint": "My",
+                    "beginning": "Hraj",
+                    "answer": "eme",
+                    "end": "na harfu krásně."
+                },
+                {
+                    "hint": "Vy",
+                    "beginning": "Hraj",
+                    "answer": "ete",
+                    "end": "na harfu krásně."
+                },
+                {
+                    "hint": "Oni",
+                    "beginning": "Hraj",
+                    "answer": "í",
+                    "end": "na harfu krásně."
+                }
+            ]
+        }
+    ],
+    "completionMessage": "Gratuluji!"
+}
 
 },{}],3:[function(require,module,exports){
 'use strict';
@@ -420,6 +509,24 @@ var Desk = function (_Component) {
       return _react2.default.createElement(
         'div',
         { id: 'desk' },
+        _react2.default.createElement(
+          'div',
+          { id: 'progress', className: "button button-primary " + (this.state.complete ? 'complete' : 'incomplete') },
+          _react2.default.createElement(
+            'h4',
+            null,
+            this.currentProgress()
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'completion-message', className: 'hide' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            _exercises2.default.completionMessage
+          )
+        ),
         _react2.default.createElement(_AnswerSet2.default, { exercises: this.state.exercises[this.state.currentExercise].set }),
         _react2.default.createElement(_PhraseSet2.default, {
           exercises: this.state.exercises[this.state.currentExercise].set,
@@ -428,23 +535,25 @@ var Desk = function (_Component) {
       );
     }
   }, {
+    key: 'shuffledExercises',
+    value: function shuffledExercises() {
+      var shuffledExercises = _exercises2.default.exercises;
+      for (var j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x) {}
+      return shuffledExercises;
+    }
+  }, {
     key: 'completeSet',
     value: function completeSet() {
       var _this2 = this;
 
-      if (this.state.currentExercise + 1 < { exercises: _exercises2.default }.exercises.length) {
+      if (this.state.currentExercise + 1 < this.numberOfExercises()) {
         this.resetAnswers();
         setTimeout(function () {
           return _this2.incrementCurrentExercise();
         }, 500);
+      } else if (this.state.currentExercise + 1 >= this.numberOfExercises()) {
+        this.completeProgress();
       }
-    }
-  }, {
-    key: 'incrementCurrentExercise',
-    value: function incrementCurrentExercise() {
-      this.setState({
-        currentExercise: this.state.currentExercise + 1
-      });
     }
   }, {
     key: 'resetAnswers',
@@ -458,11 +567,27 @@ var Desk = function (_Component) {
       });
     }
   }, {
-    key: 'shuffledExercises',
-    value: function shuffledExercises() {
-      var shuffledExercises = _exercises2.default;
-      for (var j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x) {}
-      return shuffledExercises;
+    key: 'incrementCurrentExercise',
+    value: function incrementCurrentExercise() {
+      this.setState({
+        currentExercise: this.state.currentExercise + 1
+      });
+    }
+  }, {
+    key: 'completeProgress',
+    value: function completeProgress() {
+      (0, _jquery2.default)('#progress').addClass('complete');
+      (0, _jquery2.default)('#completion-message').removeClass('hide');
+    }
+  }, {
+    key: 'numberOfExercises',
+    value: function numberOfExercises() {
+      return _exercises2.default.exercises.length;
+    }
+  }, {
+    key: 'currentProgress',
+    value: function currentProgress() {
+      return this.state.currentExercise + 1 + '/' + this.state.exercises.length;
     }
   }]);
 

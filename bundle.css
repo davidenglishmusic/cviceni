@@ -32,6 +32,42 @@
   padding-top: 2rem;
   text-align: center;
 }
+#progress {
+  pointer-events: none;
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#progress h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+}
+
+#progress.complete {
+  border-color: #00CC55;
+  background-color: #00CC55;
+}
+
+#completion-message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.hide {
+  display: none;
+}
 .phrase {
   text-align: center;
 }

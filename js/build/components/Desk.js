@@ -55,6 +55,24 @@ var Desk = function (_Component) {
       return _react2.default.createElement(
         'div',
         { id: 'desk' },
+        _react2.default.createElement(
+          'div',
+          { id: 'progress', className: "button button-primary " + (this.state.complete ? 'complete' : 'incomplete') },
+          _react2.default.createElement(
+            'h4',
+            null,
+            this.currentProgress()
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'completion-message', className: 'hide' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            _exercises2.default.completionMessage
+          )
+        ),
         _react2.default.createElement(_AnswerSet2.default, { exercises: this.state.exercises[this.state.currentExercise].set }),
         _react2.default.createElement(_PhraseSet2.default, {
           exercises: this.state.exercises[this.state.currentExercise].set,
@@ -63,23 +81,25 @@ var Desk = function (_Component) {
       );
     }
   }, {
+    key: 'shuffledExercises',
+    value: function shuffledExercises() {
+      var shuffledExercises = _exercises2.default.exercises;
+      for (var j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x) {}
+      return shuffledExercises;
+    }
+  }, {
     key: 'completeSet',
     value: function completeSet() {
       var _this2 = this;
 
-      if (this.state.currentExercise + 1 < { exercises: _exercises2.default }.exercises.length) {
+      if (this.state.currentExercise + 1 < this.numberOfExercises()) {
         this.resetAnswers();
         setTimeout(function () {
           return _this2.incrementCurrentExercise();
         }, 500);
+      } else if (this.state.currentExercise + 1 >= this.numberOfExercises()) {
+        this.completeProgress();
       }
-    }
-  }, {
-    key: 'incrementCurrentExercise',
-    value: function incrementCurrentExercise() {
-      this.setState({
-        currentExercise: this.state.currentExercise + 1
-      });
     }
   }, {
     key: 'resetAnswers',
@@ -93,11 +113,27 @@ var Desk = function (_Component) {
       });
     }
   }, {
-    key: 'shuffledExercises',
-    value: function shuffledExercises() {
-      var shuffledExercises = _exercises2.default;
-      for (var j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x) {}
-      return shuffledExercises;
+    key: 'incrementCurrentExercise',
+    value: function incrementCurrentExercise() {
+      this.setState({
+        currentExercise: this.state.currentExercise + 1
+      });
+    }
+  }, {
+    key: 'completeProgress',
+    value: function completeProgress() {
+      (0, _jquery2.default)('#progress').addClass('complete');
+      (0, _jquery2.default)('#completion-message').removeClass('hide');
+    }
+  }, {
+    key: 'numberOfExercises',
+    value: function numberOfExercises() {
+      return _exercises2.default.exercises.length;
+    }
+  }, {
+    key: 'currentProgress',
+    value: function currentProgress() {
+      return this.state.currentExercise + 1 + '/' + this.state.exercises.length;
     }
   }]);
 

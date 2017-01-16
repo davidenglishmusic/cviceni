@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import $ from 'jquery';
 import PhraseSet from './PhraseSet';
 import AnswerSet from './AnswerSet';
-import exercises from '../../../exercises.json';
+import exerciseCollection from '../../../exercises.json';
 
 class Desk extends Component {
   constructor(props) {
@@ -16,6 +16,12 @@ class Desk extends Component {
   render() {
     return (
       <div id='desk'>
+        <div id='progress' className={"button button-primary " + (this.state.complete ? 'complete' : 'incomplete')}>
+          <h4>{this.currentProgress()}</h4>
+        </div>
+        <div id='completion-message' className='hide'>
+          <h4>{exerciseCollection.completionMessage}</h4>
+        </div>
         <AnswerSet exercises={this.state.exercises[this.state.currentExercise].set}/>
         <PhraseSet
           exercises={this.state.exercises[this.state.currentExercise].set}
@@ -25,17 +31,20 @@ class Desk extends Component {
     )
   }
 
+  shuffledExercises() {
+    let shuffledExercises = exerciseCollection.exercises;
+	  for(let j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x);
+	  return shuffledExercises;
+  }
+
   completeSet() {
-    if (this.state.currentExercise + 1 < {exercises}.exercises.length) {
+    if (this.state.currentExercise + 1 < this.numberOfExercises()) {
       this.resetAnswers();
       setTimeout(() => this.incrementCurrentExercise(), 500);
     }
-  }
-
-  incrementCurrentExercise() {
-    this.setState({
-      currentExercise: this.state.currentExercise + 1
-    });
+    else if (this.state.currentExercise + 1 >= this.numberOfExercises()) {
+      this.completeProgress()
+    }
   }
 
   resetAnswers() {
@@ -48,10 +57,23 @@ class Desk extends Component {
     });
   }
 
-  shuffledExercises() {
-    let shuffledExercises = exercises;
-	  for(let j, x, i = shuffledExercises.length; i; j = parseInt(Math.random() * i), x = shuffledExercises[--i], shuffledExercises[i] = shuffledExercises[j], shuffledExercises[j] = x);
-	  return shuffledExercises;
+  incrementCurrentExercise() {
+    this.setState({
+      currentExercise: this.state.currentExercise + 1
+    });
+  }
+
+  completeProgress() {
+    $('#progress').addClass('complete')
+    $('#completion-message').removeClass('hide')
+  }
+
+  numberOfExercises() {
+    return exerciseCollection.exercises.length
+  }
+
+  currentProgress() {
+    return (this.state.currentExercise + 1) + '/' + this.state.exercises.length
   }
 }
 
