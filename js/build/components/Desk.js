@@ -14,6 +14,8 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+require('jquery-ui');
+
 var _PhraseSet = require('./PhraseSet');
 
 var _PhraseSet2 = _interopRequireDefault(_PhraseSet);

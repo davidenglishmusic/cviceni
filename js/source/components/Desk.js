@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import $ from 'jquery';
+import 'jquery-ui';
 import PhraseSet from './PhraseSet';
 import AnswerSet from './AnswerSet';
 import exerciseCollection from '../../../exercises.json';
