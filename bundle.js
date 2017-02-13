@@ -264,7 +264,7 @@ module.exports={
             "set": [{
                     "hint": "Ja",
                     "beginning": "Hraj",
-                    "answer": "u",
+                    "answer": "í",
                     "end": "na harfu krásně."
                 },
                 {
