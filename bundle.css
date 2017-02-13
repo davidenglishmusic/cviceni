@@ -28,6 +28,18 @@
   border-color: #CC2A17;
   background-color: #CC2A17;
 }
+
+.answer {
+  z-index: 2;
+}
+
+.answer.correct {
+  z-index: 1;
+}
+
+.answer.ui-draggable-dragging {
+  z-index: 3;
+}
 .answer-set {
   padding-top: 2rem;
   text-align: center;
