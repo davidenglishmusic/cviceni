@@ -1,8 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import $ from 'jquery';
-import 'jquery-ui';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Answer extends Component {
+class Answer extends React.Component {
   render() {
     return (
       <a className="answer button button-primary" ref={'selector'} data-answer={this.props.answer}>

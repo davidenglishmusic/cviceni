@@ -1,7 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Answer from './Answer';
 
-class AnswerSet extends Component {
+class AnswerSet extends React.Component {
   render() {
     return (
       <div className="answer-set">

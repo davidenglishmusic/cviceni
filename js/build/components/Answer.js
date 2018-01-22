@@ -10,11 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jquery = require('jquery');
+var _propTypes = require('prop-types');
 
-var _jquery2 = _interopRequireDefault(_jquery);
-
-require('jquery-ui');
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,8 +22,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Answer = function (_Component) {
-  _inherits(Answer, _Component);
+var Answer = function (_React$Component) {
+  _inherits(Answer, _React$Component);
 
   function Answer() {
     _classCallCheck(this, Answer);
@@ -49,15 +47,15 @@ var Answer = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      return (0, _jquery2.default)(this.refs.selector).draggable();
+      return $(this.refs.selector).draggable();
     }
   }]);
 
   return Answer;
-}(_react.Component);
+}(_react2.default.Component);
 
 Answer.propTypes = {
-  answer: _react.PropTypes.string.isRequired
+  answer: _propTypes2.default.string.isRequired
 };
 
 exports.default = Answer;

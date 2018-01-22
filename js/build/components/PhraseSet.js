@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Phrase = require('./Phrase');
 
 var _Phrase2 = _interopRequireDefault(_Phrase);
@@ -22,8 +26,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PhraseSet = function (_Component) {
-  _inherits(PhraseSet, _Component);
+var PhraseSet = function (_React$Component) {
+  _inherits(PhraseSet, _React$Component);
 
   function PhraseSet() {
     _classCallCheck(this, PhraseSet);
@@ -55,11 +59,11 @@ var PhraseSet = function (_Component) {
   }]);
 
   return PhraseSet;
-}(_react.Component);
+}(_react2.default.Component);
 
 PhraseSet.propTypes = {
-  exercises: _react.PropTypes.array.isRequired,
-  completeSet: _react.PropTypes.func.isRequired
+  exercises: _propTypes2.default.array.isRequired,
+  completeSet: _propTypes2.default.func.isRequired
 };
 
 exports.default = PhraseSet;

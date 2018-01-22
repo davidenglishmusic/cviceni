@@ -1,7 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Phrase from './Phrase';
 
-class PhraseSet extends Component {
+class PhraseSet extends React.Component {
   render() {
     let setExercises = this.props.exercises.map((exercise, index) =>
       <Phrase

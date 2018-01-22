@@ -1,11 +1,9 @@
-import React, {Component, PropTypes} from 'react';
-import $ from 'jquery';
-import 'jquery-ui';
+import React from 'react';
 import PhraseSet from './PhraseSet';
 import AnswerSet from './AnswerSet';
 import exerciseCollection from '../../../exercises.json';
 
-class Desk extends Component {
+class Desk extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,8 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import $ from 'jquery';
-import 'jquery-ui';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Phrase extends Component {
+class Phrase extends React.Component {
   render() {
     return (
       <div className="phrase">

@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Answer = require('./Answer');
 
 var _Answer2 = _interopRequireDefault(_Answer);
@@ -22,8 +26,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AnswerSet = function (_Component) {
-  _inherits(AnswerSet, _Component);
+var AnswerSet = function (_React$Component) {
+  _inherits(AnswerSet, _React$Component);
 
   function AnswerSet() {
     _classCallCheck(this, AnswerSet);
@@ -52,10 +56,10 @@ var AnswerSet = function (_Component) {
   }]);
 
   return AnswerSet;
-}(_react.Component);
+}(_react2.default.Component);
 
 AnswerSet.propTypes = {
-  exercises: _react.PropTypes.array.isRequired
+  exercises: _propTypes2.default.array.isRequired
 };
 
 exports.default = AnswerSet;

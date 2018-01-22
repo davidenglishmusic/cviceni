@@ -10,12 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-require('jquery-ui');
-
 var _PhraseSet = require('./PhraseSet');
 
 var _PhraseSet2 = _interopRequireDefault(_PhraseSet);
@@ -36,8 +30,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Desk = function (_Component) {
-  _inherits(Desk, _Component);
+var Desk = function (_React$Component) {
+  _inherits(Desk, _React$Component);
 
   function Desk(props) {
     _classCallCheck(this, Desk);
@@ -106,12 +100,12 @@ var Desk = function (_Component) {
   }, {
     key: 'resetAnswers',
     value: function resetAnswers() {
-      (0, _jquery2.default)("a.answer").each(function (index) {
-        (0, _jquery2.default)(this).removeClass("correct").draggable("enable");
-        (0, _jquery2.default)(this).animate({ left: "0px", top: "0px" }, { duration: 500 });
+      $("a.answer").each(function (index) {
+        $(this).removeClass("correct").draggable("enable");
+        $(this).animate({ left: "0px", top: "0px" }, { duration: 500 });
       });
-      (0, _jquery2.default)(".phrase-part.phrase-answer").each(function (index) {
-        (0, _jquery2.default)(this).droppable("enable");
+      $(".phrase-part.phrase-answer").each(function (index) {
+        $(this).droppable("enable");
       });
     }
   }, {
@@ -124,8 +118,8 @@ var Desk = function (_Component) {
   }, {
     key: 'completeProgress',
     value: function completeProgress() {
-      (0, _jquery2.default)('#progress').addClass('complete');
-      (0, _jquery2.default)('#completion-message').removeClass('hide');
+      $('#progress').addClass('complete');
+      $('#completion-message').removeClass('hide');
     }
   }, {
     key: 'numberOfExercises',
@@ -140,6 +134,6 @@ var Desk = function (_Component) {
   }]);
 
   return Desk;
-}(_react.Component);
+}(_react2.default.Component);
 
 exports.default = Desk;
