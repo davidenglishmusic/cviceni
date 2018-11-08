@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
+import 'jquery-ui-bundle';
+import '../css/components/Answer.css';
 
 class Answer extends React.Component {
   render() {
     return (
-      <a className="answer button button-primary" ref={'selector'} data-answer={this.props.answer}>
+      <span className="answer button button-primary" ref={'selector'} data-answer={this.props.answer}>
         <span>{this.props.answer}</span>
-      </a>
+      </span>
     )
   }
   componentDidMount() {

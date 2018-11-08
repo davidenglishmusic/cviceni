@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
+import 'jquery-ui-bundle';
+import '../css/components/Phrase.css';
 
 class Phrase extends React.Component {
   render() {
@@ -15,23 +18,24 @@ class Phrase extends React.Component {
 
   componentDidMount() {
     return $(this.refs.selector).droppable({
-      drop: ( event, ui ) => {
-        $( ui.draggable[0] ).position({
+      drop: (event, ui) => {
+        var itemToDrop = $(ui.draggable[0]);
+        itemToDrop.position({
           my: "center",
           at: "center",
           of: event.target
         });
         if (event.target.dataset.answer === ui.draggable[0].dataset.answer){
-          $(ui.draggable[0]).removeClass("incorrect");
-          $(ui.draggable[0]).addClass("correct");
-          $(ui.draggable[0]).draggable("disable");
+          itemToDrop.removeClass("incorrect");
+          itemToDrop.addClass("correct");
+          itemToDrop.draggable("disable");
           $(event.target).droppable("disable");
-          if ($('a.answer.correct').length === $('.phrase').length) {
+          if ($('span.answer.correct').length === $('.phrase').length) {
             this.props.completeSet()
           }
         }
         else {
-          $(ui.draggable[0]).addClass("incorrect");
+          itemToDrop.addClass("incorrect");
         }
       }
     });

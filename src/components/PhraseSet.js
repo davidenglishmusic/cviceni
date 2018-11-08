@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Phrase from './Phrase';
+import '../css/components/PhraseSet.css';
 
 class PhraseSet extends React.Component {
   render() {
-    let setExercises = this.props.exercises.map((exercise, index) =>
+    let setExercises = this.props.exerciseSet.map((exercise, index) =>
       <Phrase
         key={index}
         hint={exercise.hint}
@@ -23,7 +24,7 @@ class PhraseSet extends React.Component {
 }
 
 PhraseSet.propTypes = {
-  exercises: PropTypes.array.isRequired,
+  exerciseSet: PropTypes.array.isRequired,
   completeSet: PropTypes.func.isRequired,
 };
 
